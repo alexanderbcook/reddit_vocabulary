@@ -3,27 +3,18 @@ import psycopg2
 from psycopg2.extensions import AsIs
 import datetime
 
-
 try:
     conn = psycopg2.connect("dbname='postgres' host ='localhost'")
 except:
     print "Can't connect to PSQL!"
 
-d = 'the_donald'
-n = 'news'
-p = 'politics'
-w = 'worldnews'
-
 subreddits = ['politics','the_donald','worldnews','news']
-word = 'fuck'
-date = '2016-28-01'
 cur = conn.cursor()
 
 for subreddit in subreddits:
+    values = []
 
     cur.execute("SELECT count FROM reddit.%s;", (AsIs(subreddit),))
-
-    values = []
     for value in cur.fetchall():
         values.append(value[0])
         total = sum(values)
