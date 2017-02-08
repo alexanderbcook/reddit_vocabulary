@@ -1,7 +1,6 @@
 import redis
 import psycopg2
 from psycopg2.extensions import AsIs
-import datetime
 
 try:
     conn = psycopg2.connect("dbname='postgres' host ='localhost'")

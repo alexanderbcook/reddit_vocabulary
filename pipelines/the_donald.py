@@ -22,7 +22,7 @@ processed_words = []
 
 # Iterate through the top ten submissions, flatter all comments.
 
-for submission in subreddit.hot(limit=15):
+for submission in subreddit.hot(limit=30):
     submission.comments.replace_more(limit=0)
     for top_level_comment in submission.comments:
         comments.append((top_level_comment.body).lower())

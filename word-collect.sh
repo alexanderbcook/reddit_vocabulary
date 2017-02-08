@@ -18,4 +18,6 @@ python utilities/word_count.py
 echo "Done!"
 echo "Calculating word proportionality..."
 python utilities/proportion.py
+echo "Done!"
+python utilities/clean-up.py
 echo "Script complete! Verify data integrity in PSQL."
