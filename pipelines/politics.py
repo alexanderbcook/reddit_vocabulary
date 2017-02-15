@@ -22,7 +22,7 @@ processed_words = []
 
 # Iterate through the top ten submissions, flatter all comments.
 
-for submission in subreddit.hot(limit=30):
+for submission in subreddit.hot('day', limit=25):
     submission.comments.replace_more(limit=0)
     for top_level_comment in submission.comments:
         if top_level_comment.author != 'AutoModerator':
