@@ -20,12 +20,9 @@ subreddit = reddit.subreddit('news')
 comments = []
 processed_words = []
 
-# Iterate through the top ten submissions, flatter all comments.
-i = 0
+# Iterate through the top ten submissions, flatten all comments.
+
 for submission in subreddit.top('day', limit=25):
-    print submission.title
-    i += 1
-    print i
     submission.comments.replace_more(limit=0)
     for top_level_comment in submission.comments:
         comments.append((top_level_comment.body).lower())

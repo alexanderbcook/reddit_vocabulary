@@ -20,9 +20,9 @@ subreddit = reddit.subreddit('worldnews')
 comments = []
 processed_words = []
 
-# Iterate through the top ten submissions, flatter all comments.
+# Iterate through the top ten submissions, flatten all comments.
 
-for submission in subreddit.hot('day', limit=25):
+for submission in subreddit.top('day', limit=25):
     submission.comments.replace_more(limit=0)
     for top_level_comment in submission.comments:
         comments.append((top_level_comment.body).lower())
