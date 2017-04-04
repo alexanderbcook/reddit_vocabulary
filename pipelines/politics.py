@@ -16,20 +16,6 @@ reddit = praw.Reddit(client_id=config.client_id, client_secret=config.client_sec
 redis = redis.StrictRedis(host='localhost', port=6379, db=0)
 subreddit = reddit.subreddit('politics')
 
-
-comments = []
-processed_words = []
-
-# Iterate through the top ten submissions, flatten all comments.
-
-for submission in subreddit.top('day', limit=25):
-    submission.comments.replace_more(limit=0)
-    for top_level_comment in submission.comments:
-        if top_level_comment.author != 'AutoModerator':
-            comments.append((top_level_comment.body).lower())
-            for second_level_comment in top_level_comment.replies:
-                comments.append((second_level_comment.body).lower())
-
 # Define pre-processing function
 
 def preprocess_comment(str):
@@ -57,7 +43,32 @@ def preprocess_comment(str):
         return
     return str
 
+
+# Define function to check comment id versus a list of processed comment ids and store new comments
+
+def store_new_comments(comment, file, comment_list):
+   if comment.id not in open(file).read():
+    with open(file, "a") as text_file:
+        text_file.write(comment.id)
+        text_file.write('\n')
+    comment_list.append((comment.body).lower()) 
+    return comment_list
+
+# Iterate through the top ten submissions, flatten all comments.
+
+comments = []
+
+for submission in subreddit.top('day', limit=25):
+    submission.comments.replace_more(limit=0)
+    for top_level_comment in submission.comments:
+        store_new_comments(top_level_comment, "temp/politics.txt", comments)
+        for second_level_comment in top_level_comment.replies:
+            store_new_comments(second_level_comment, "temp/politics.txt", comments)
+
+
 # Process comments and add them to a cleaned list.
+
+processed_words = []
 
 for comment in comments:
     blob = TextBlob(comment)
