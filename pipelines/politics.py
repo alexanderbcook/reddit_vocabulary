@@ -1,10 +1,11 @@
 # !/usr/bin/python
+import sys
+sys.path.append('/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages')
 import praw
 import os
 import re
 import redis
 from textblob import TextBlob
-import sys
 sys.path.append('/Users/alexandercook/Repositories/reddit_vocabulary/utilities')
 import config
 from config import *
@@ -72,7 +73,7 @@ processed_words = []
 
 for comment in comments:
     blob = TextBlob(comment)
-    words = blob.words
+    words = blob.words.singularize()
 
     for word in words:
         word = word.encode('utf-8')

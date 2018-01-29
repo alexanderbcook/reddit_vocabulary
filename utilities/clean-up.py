@@ -11,7 +11,7 @@ subreddits = ['politics','the_donald','worldnews','news']
 cur = conn.cursor()
 
 for subreddit in subreddits:
-    cur.execute("DELETE FROM reddit.%s WHERE proportion < 0.00005;", (AsIs(subreddit),))
+    cur.execute("DELETE FROM reddit.%s WHERE count = 1;", (AsIs(subreddit),))
     message = cur.statusmessage.replace('DELETE ', '')
     print 'Deleted ' +  message + ' rows with a proportionality below threshold from reddit.'+subreddit + '.'
 

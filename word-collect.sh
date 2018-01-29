@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 
 clear 
 echo "Fetching r/politics posts..."
@@ -15,9 +15,6 @@ python pipelines/the_donald.py
 echo "Done!"
 echo "Uploading word counts to PSQL..."
 python utilities/word_count.py
-echo "Done!"
-echo "Calculating word proportionality..."
-python utilities/proportion.py
 echo "Done!"
 python utilities/clean-up.py
 echo "Script complete! Verify data integrity in PSQL."
