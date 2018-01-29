@@ -73,7 +73,7 @@ processed_words = []
 
 for comment in comments:
     blob = TextBlob(comment)
-    words = blob.words.singularize()
+    words = blob.words
 
     for word in words:
         word = word.encode('utf-8')
