@@ -4,4 +4,4 @@ words = ['the','and','that','have','for','not','with','you','this','but','his','
         'other','than','then','now','look','only','come','its','over','think','also','back','after','use','two',
         'how','our','work','first','well','way','even','new','want','because','any','these','give','day','most','use',
         'are','has','does','did','were','been','had','too','was','more','thi','those','going','why','really','many',
-        'very','where','need','much','same','thing','got','there','here','ymy','actually']
+        'very','where','need','much','same','thing','got','there','here','ymy','actually', 'should', 'being']
