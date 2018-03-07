@@ -3,7 +3,7 @@ import psycopg2
 from psycopg2.extensions import AsIs
 
 try:
-    conn = psycopg2.connect("dbname='postgres' host ='localhost'")
+    conn = psycopg2.connect("dbname='postgres' host ='localhost' user='postgres'")
 except:
     print "Can't connect to PSQL!"
 
