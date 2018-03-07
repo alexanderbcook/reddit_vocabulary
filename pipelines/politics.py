@@ -1,12 +1,11 @@
 # !/usr/bin/python
 import sys
-sys.path.append('/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages')
 import praw
 import os
 import re
 import redis
 from textblob import TextBlob
-sys.path.append('/Users/alexandercook/Repositories/reddit_vocabulary/utilities')
+sys.path.append('/home/ubuntu/reddit_vocabulary/utilities')
 import config
 from config import *
 import common_words

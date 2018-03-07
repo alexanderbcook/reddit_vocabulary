@@ -5,7 +5,7 @@ import re
 import redis
 from textblob import TextBlob
 import sys
-sys.path.append('/Users/alexandercook/Repositories/reddit_vocabulary/utilities')
+sys.path.append('/home/ubuntu/reddit_vocabulary/utilities')
 import config
 from config import *
 import common_words
