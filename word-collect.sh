@@ -2,19 +2,21 @@
 
 clear 
 echo "Fetching r/politics posts..."
-python pipelines/politics.py
+python /home/ec2-user/reddit_vocabulary/pipelines/politics.py
 echo "Done!"
 echo "Fetching r/news posts..."
-python pipelines/news.py
+python /home/ec2-user/reddit_vocabulary/pipelines/news.py
 echo "Done!"
 echo "Fetching r/worldnews posts..."
-python pipelines/worldnews.py
+python /home/ec2-user/reddit_vocabulary/pipelines/worldnews.py
 echo "Done!"
 echo "Fetching r/the_donald posts..."
-python pipelines/the_donald.py
+python /home/ec2-user/reddit_vocabulary/pipelines/the_donald.py
 echo "Done!"
 echo "Uploading word counts to PSQL..."
-python utilities/word_count.py
+python /home/ec2-user/reddit_vocabulary/utilities/word_count.py
 echo "Done!"
-python utilities/clean-up.py
+python /home/ec2-user/reddit_vocabulary/utilities/clean-up.py
+echo "Refreshing materialized views..."
+python /home/ec2-user/reddit_vocabulary/utilities/refresh.py
 echo "Script complete! Verify data integrity in PSQL."

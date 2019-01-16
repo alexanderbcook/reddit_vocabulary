@@ -5,7 +5,8 @@ import re
 import redis
 from textblob import TextBlob
 import sys
-sys.path.append('/Users/alexandercook/Repositories/reddit_vocabulary/utilities')
+sys.path.append('/home/ec2-user/')
+sys.path.append('/home/ec2-user/reddit_vocabulary/utilities')
 import config
 from config import *
 import common_words
@@ -61,9 +62,9 @@ comments = []
 for submission in subreddit.top('day', limit=25):
     submission.comments.replace_more(limit=0)
     for top_level_comment in submission.comments:
-        store_new_comments(top_level_comment, "temp/news.txt", comments)
+        store_new_comments(top_level_comment, "/home/ec2-user/reddit_vocabulary/temp/news.txt", comments)
         for second_level_comment in top_level_comment.replies:
-            store_new_comments(second_level_comment, "temp/news.txt", comments)
+            store_new_comments(second_level_comment, "/home/ec2-user/reddit_vocabulary/temp/news.txt", comments)
 
 
 # Process comments and add them to a cleaned list.

@@ -1,4 +1,4 @@
-mport psycopg2
+import psycopg2
 from psycopg2.extensions import AsIs
 
 try:
@@ -10,10 +10,11 @@ subreddits = ['politics','the_donald','worldnews','news']
 cur = conn.cursor()
 
 for subreddit in subreddits:
-    cur.execute("REFRESH MATERIALIZED VIEW day_%s", (AsIs(subreddit),))
+    cur.execute("REFRESH MATERIALIZED VIEW  day_%s", (AsIs(subreddit),))
     cur.execute("REFRESH MATERIALIZED VIEW month_%s", (AsIs(subreddit),))
     cur.execute("REFRESH MATERIALIZED VIEW year_%s", (AsIs(subreddit),))
-    print "Finished refresh of materialized view for " + subreddit "."
+    cur.execute("REFRESH MATERIALIZED VIEW count_%s", (AsIs(subreddit),))
+    print "Finished refresh of materialized views for reddit." + subreddit +"."
 
 conn.commit()
 cur.close()
