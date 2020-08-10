@@ -3,14 +3,20 @@ Done!
 Fetching r/news posts...
 Done!
 Fetching r/worldnews posts...
-Done!
-Fetching r/the_donald posts...
-Done!
+Done
 Uploading word counts to PSQL...
 Done!
+Deleted 497 rows with a proportionality below threshold from reddit.politics.
+DELETE FROM reddit.%s WHERE full_date <'2019-08-11 20:33:46.777852';
+Deleted 0 rows that are older than 2019-08-11 20:33:46.777852 from reddit.politics.
+Deleted 517 rows with a proportionality below threshold from reddit.worldnews.
+DELETE FROM reddit.%s WHERE full_date <'2019-08-11 20:33:46.777852';
+Deleted 0 rows that are older than 2019-08-11 20:33:46.777852 from reddit.worldnews.
+Deleted 445 rows with a proportionality below threshold from reddit.news.
+DELETE FROM reddit.%s WHERE full_date <'2019-08-11 20:33:46.777852';
+Deleted 0 rows that are older than 2019-08-11 20:33:46.777852 from reddit.news.
 Refreshing materialized views...
 Finished refresh of materialized views for reddit.politics.
-Finished refresh of materialized views for reddit.the_donald.
 Finished refresh of materialized views for reddit.worldnews.
 Finished refresh of materialized views for reddit.news.
 Script complete! Verify data integrity in PSQL.

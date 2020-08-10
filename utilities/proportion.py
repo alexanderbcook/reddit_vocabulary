@@ -7,7 +7,7 @@ try:
 except:
     print "Can't connect to PSQL!"
 
-subreddits = ['politics','the_donald','worldnews','news']
+subreddits = ['politics','worldnews','news']
 cur = conn.cursor()
 
 for subreddit in subreddits:

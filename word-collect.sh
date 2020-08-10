@@ -9,10 +9,7 @@ python /home/ec2-user/reddit_vocabulary/pipelines/news.py
 echo "Done!"
 echo "Fetching r/worldnews posts..."
 python /home/ec2-user/reddit_vocabulary/pipelines/worldnews.py
-echo "Done!"
-echo "Fetching r/the_donald posts..."
-python /home/ec2-user/reddit_vocabulary/pipelines/the_donald.py
-echo "Done!"
+echo "Done"
 echo "Uploading word counts to PSQL..."
 python /home/ec2-user/reddit_vocabulary/utilities/word_count.py
 echo "Done!"

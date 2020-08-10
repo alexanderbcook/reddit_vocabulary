@@ -13,7 +13,7 @@ try:
 except:
     print "Can't connect to PSQL!"
 
-subreddits = ['politics','the_donald','worldnews','news']
+subreddits = ['politics','worldnews','news']
 date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 cur = conn.cursor()
